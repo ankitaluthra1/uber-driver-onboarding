@@ -3,13 +3,14 @@ package com.intuit.driver.profile.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection = "driver-profiles")
 public class DriverProfileEntity {
 
     @Id
     private String id;
     private String firstName;
     private String lastName;
+
     private String email;
     private String phoneNumber;
     private String documentId;

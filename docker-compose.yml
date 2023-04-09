@@ -4,25 +4,16 @@ services:
     image: mongo
     container_name: mongo
     restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
     ports:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
   profile-service:
-    build: ./profile-service
-    container_name: profile-service
+    image: driver-module/profile-service:latest
     ports:
       - "8080:8080"
     depends_on:
       - mongo
-    environment:
-      SPRING_DATA_MONGODB_HOST: mongo
-      SPRING_DATA_MONGODB_PORT: 27017
-      SPRING_DATA_MONGODB_USERNAME: root
-      SPRING_DATA_MONGODB_PASSWORD: root
 volumes:
   mongo_data:
     driver: local
