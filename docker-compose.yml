@@ -4,16 +4,24 @@ services:
     image: mongo
     container_name: mongo
     restart: always
+    networks:
+      - my-network
     ports:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
   profile-service:
     image: driver-module/profile-service:latest
+    container_name: profile-service
     ports:
       - "8080:8080"
     depends_on:
       - mongo
+    networks:
+      - my-network
 volumes:
   mongo_data:
     driver: local
+networks:
+  my-network:
+    driver: bridge
