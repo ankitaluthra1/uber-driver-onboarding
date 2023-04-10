@@ -1,18 +1,18 @@
 package com.intuit.driver.documents.infrastructure;
 
 import com.intuit.driver.documents.core.ports.models.DocumentInfo;
-import com.intuit.driver.documents.core.ports.outbound.DocumentCollector;
+import com.intuit.driver.documents.core.ports.outbound.DocumentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 @Component
-public class DocumentRepository implements DocumentCollector {
+public class DocumentRepositoryImpl implements DocumentRepository {
 
     private VaultClient vaultClient;
 
     @Autowired
-    public DocumentRepository(VaultClient vaultClient) {
+    public DocumentRepositoryImpl(VaultClient vaultClient) {
         this.vaultClient = vaultClient;
     }
 
