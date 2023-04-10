@@ -10,7 +10,7 @@ import java.util.UUID;
 @Component
 public class VaultClient {
 
-    private final static String FILE_UPLOAD_DIRECTORY_PATH = "/data/documents";
+    private final static String FILE_UPLOAD_DIRECTORY_PATH = "/data/documents/";
 
     public Mono<String> saveDocumentInVault(FilePart file){
         return file
