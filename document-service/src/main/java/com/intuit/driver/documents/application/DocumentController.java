@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/documents")
 public class DocumentController {
 
-    private DocumentService documentService;
+    private final DocumentService documentService;
 
     @Autowired
     public DocumentController(DocumentService documentService) {
@@ -24,6 +24,6 @@ public class DocumentController {
     @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseStatus(value = HttpStatus.CREATED)
     public Mono<String> uploadFile(@RequestParam String type, @RequestPart Mono<FilePart> file) {
-        return file.flatMap(f -> documentService.saveDocument(new DocumentInfo("identity", f)));
+        return file.flatMap(f -> documentService.saveDocument(new DocumentInfo(type, f)));
     }
 }
