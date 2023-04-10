@@ -5,7 +5,7 @@ services:
     container_name: mongo
     restart: always
     networks:
-      - my-network
+      - bridge-network
     ports:
       - "27017:27017"
     volumes:
@@ -18,10 +18,19 @@ services:
     depends_on:
       - mongo
     networks:
-      - my-network
+      - bridge-network
+  document-service:
+    image: driver-module/document-service:latest
+    container_name: document-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongo
+    networks:
+      - bridge-network
 volumes:
   mongo_data:
     driver: local
 networks:
-  my-network:
+  bridge-network:
     driver: bridge
