@@ -23,7 +23,7 @@ public class DocumentController {
 
     @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public Mono<String> uploadFile(@RequestParam String type, @RequestPart Mono<FilePart> file) {
-        return file.flatMap(f -> documentService.saveDocument(new DocumentInfo(type, f)));
+    public Mono<String> uploadFile(@RequestParam String phoneNumber, @RequestPart Mono<FilePart> file) {
+        return file.flatMap(f -> documentService.saveDocument(new DocumentInfo(phoneNumber, f)));
     }
 }

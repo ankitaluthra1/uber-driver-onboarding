@@ -4,16 +4,16 @@ import org.springframework.http.codec.multipart.FilePart;
 
 public class DocumentInfo {
 
-    private String type;
+    private String phoneNumber;
     FilePart file;
 
-    public DocumentInfo(String type, FilePart file) {
-        this.type = type;
+    public DocumentInfo(String phoneNumber, FilePart file) {
+        this.phoneNumber = phoneNumber;
         this.file = file;
     }
 
-    public String getType() {
-        return type;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public FilePart getFile() {

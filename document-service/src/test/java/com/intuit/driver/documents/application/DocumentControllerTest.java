@@ -44,7 +44,7 @@ class DocumentControllerTest {
         builder.part("file", resource);
 
         webClient.post()
-                .uri("/documents/upload?type=pan")
+                .uri("/documents/upload?phoneNumber=555-555-5555")
                 .contentType(MediaType.MULTIPART_FORM_DATA)
                 .body(BodyInserters.fromMultipartData(builder.build()))
                 .exchange()
@@ -62,7 +62,7 @@ class DocumentControllerTest {
         builder.part("file", resource);
 
         webClient.post()
-                .uri("/documents/upload?type=pan")
+                .uri("/documents/upload?phoneNumber=555-555-5555")
                 .contentType(MediaType.MULTIPART_FORM_DATA)
                 .body(BodyInserters.fromMultipartData(builder.build()))
                 .exchange()
